@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- `ส่วนที่ไม้่แสดงไปหน้า Browser -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 1. แต่งใคร ? (id class DOM) 2. แต่งอะไร ? */
+    #register {
+        font-size: 24px;
+        color: black;
+        font-weight: 800;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: lightgray;
+        border: 2px solid black;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    @font-face {
+        font-family: 'Kanit';
+        src: url('./Kanit/Kanit-Regular.ttf') format('truetype');
+    }
+    body{
+        font-family: 'Kanit', sans-serif;
+    }
+  </style>
+</head>
+</body>
+    <!-- `ส่วนที่แสดงไปหน้า Browser -->
+    <!-- form -->
+    <div id = "register">Register Form</div>
+    ชื่อ <input class = "form"type ="text">
+    นามสกุล <input class = "form" type ="text"> <br>
+    อายุ <input type = "number" min = "0" max = "150"> <br>
+    เพศ <input type = "radio" name = "gender"value = "male"> ชาย
+        <input type = "radio" name = "gender"value = "female"> หญิง <br>
+
+    งานอดิเรก <br>
+        <input type = "checkbox" name = "hobby" value = "reading"> อ่านหนังสือ <br>
+        <input type = "checkbox" name = "hobby" value = "traveling"> ท่องเที่ยว <br>
+        <input type = "checkbox" name = "hobby" value = "sports"> เล่นกีฬา <br>
+    อธิบายตัวเอง <br>
+    <textarea rows = "4" cols = "50"></textarea> <br>
+    <input type = "submit" value = "Submit">
+</body>
+</html>
