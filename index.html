@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            ลงทะเบียนสมาชิก
+        </div>
+        
+        <div class="form-group">
+            <label class="label">ชื่อ</label>
+            <input class="form-control" name="firstname" type="text" placeholder="ระบุชื่อจริง">
+        </div>
+
+        <div class="form-group">
+            <label class="label">นามสกุล</label>
+            <input class="form-control" name="lastname" type="text" placeholder="ระบุนามสกุล">
+        </div>
+
+        <div class="form-group">
+            <label class="label">อายุ</label>
+            <input class="form-control" name="age" type="number" min="0" max="100" placeholder="ระบุอายุ">
+        </div>
+
+        <div class="form-group">
+            <label class="label">เพศ</label>
+            <div class="radio-group">
+                <label class="radio-item">
+                    <input name="gender" type="radio" value="ชาย"> <span>ชาย</span>
+                </label>
+                <label class="radio-item">
+                    <input name="gender" type="radio" value="หญิง"> <span>หญิง</span>
+                </label>
+                <label class="radio-item">
+                    <input name="gender" type="radio" value="อื่นๆ"> <span>อื่นๆ</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="label">งานอดิเรก</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item">
+                    <input name="interest" type="checkbox" value="อ่านหนังสือ"> <span>อ่านหนังสือ</span>
+                </label>
+                <label class="checkbox-item">
+                    <input name="interest" type="checkbox" value="ดูหนัง"> <span>ดูหนัง</span>
+                </label>
+                <label class="checkbox-item">
+                    <input name="interest" type="checkbox" value="ฟังเพลง"> <span>ฟังเพลง</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label class="label">คำอธิบายเพิ่มเติม</label>
+            <textarea class="form-control" name="description" rows="4"></textarea>
+        </div>
+
+        <div class="center">
+            <button onclick="submitData()" class="button">ยืนยันข้อมูล</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

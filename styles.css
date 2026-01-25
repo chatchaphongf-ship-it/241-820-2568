@@ -1,0 +1,161 @@
+/* ตั้งค่าพื้นฐาน */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* พื้นหลังไล่สีสวยๆ */
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* กล่องหลัก */
+.container {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* เงานุ่มๆ */
+}
+
+/* หัวข้อ */
+.header {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* การจัดวางแต่ละแถว */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* บนมือถือให้เรียงแนวตั้ง */
+}
+
+.label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 16px;
+}
+
+/* ช่องกรอกข้อมูล */
+.form-control {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s;
+    outline: none;
+    width: 100%;
+}
+
+.form-control:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+}
+
+/* Textarea */
+textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* กลุ่ม Radio และ Checkbox */
+.radio-group, .checkbox-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding-top: 5px;
+}
+
+.radio-item, .checkbox-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+.radio-item:hover, .checkbox-item:hover {
+    background: #eef2f5;
+}
+
+.radio-item input, .checkbox-item input {
+    margin-right: 8px;
+    accent-color: #4facfe; /* สีของปุ่มติ๊ก */
+    transform: scale(1.1);
+}
+
+/* ปุ่มกด */
+.center {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.button {
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); /* ไล่สีปุ่ม */
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+    transform: translateY(-2px); /* ลอยขึ้นนิดนึงตอนชี้ */
+    box-shadow: 0 8px 20px rgba(79, 172, 254, 0.6);
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+
+/* ปรับแต่งสำหรับหน้าจอ Desktop */
+@media (min-width: 600px) {
+    .form-group {
+        flex-direction: row; /* แนวนอน */
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .label {
+        width: 30%; /* ป้ายชื่อกว้าง 30% */
+        margin-bottom: 0;
+    }
+    
+    .form-control, .radio-group, .checkbox-group {
+        width: 70%; /* ช่องกรอกกว้าง 70% */
+    }
+
+    /* ยกเว้น Textarea ให้กว้างเต็ม */
+    .form-group.full-width {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .form-group.full-width .label {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .form-group.full-width .form-control {
+        width: 100%;
+    }
+}
