@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจัดการพนักงาน - HR System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>ระบบจัดการพนักงาน</h2>
+            <nav>
+                <th>="showSection('staff')">ข้อมูลพนักงาน<th>
+                <th>="showSection('time-record')">เช็คอิน-เช็คเอาท์<th>
+                <th>="showSection('report')">สรุปรายเดือน</th>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section id="staff" class="active-section">
+                <h3>จัดการข้อมูลพนักงาน</h3>
+                <div class="card">
+                    <form id="staffForm">
+                        <input type="text" id="empName" placeholder="ชื่อ-นามสกุล" required>
+                        <input type="text" id="empID" placeholder="รหัสพนักงาน" required>
+                        <button type="submit" class="btn-save">เพิ่มพนักงาน</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="time-record">
+                <h3>บันทึกเวลาทำงาน</h3>
+                <div class="card">
+                    <p id="digital-clock">00:00:00</p>
+                    <div class="btn-group">
+                        <button class="btn-checkin" onclick="recordTime('IN')">Check-In</button>
+                        <button class="btn-checkout" onclick="recordTime('OUT')">Check-Out</button>
+                        <p>เวลาเข้า: <span id="checkin-time">-</span></p>
+                        <p>เวลาออก: <span id="checkout-time">-</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="report">
+                <h3>รายงานสรุปรายเดือน</h3>
+                <div class="table-container">
+                    <table id="reportTable">
+                        <thead>
+                            <tr>
+                                <th>รหัส</th>
+                                <th>ชื่อ</th>
+                                <th>ชั่วโมงทำงาน</th>
+                                <th>OT (ชม.)</th>
+                                <th>สถานะ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportData">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
