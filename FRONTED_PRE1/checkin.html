@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR System - เช็คอิน/เอาท์</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>ระบบจัดการพนักงาน</h1>
+        <a href="index.html">พนักงาน</a>
+        <a href="checkin.html" class="active">เช็คอิน/เอาท์</a>
+        <a href="report.html">รายงาน</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Alert -->
+        <div id="alert" class="alert"></div>
+
+        <!-- นาฬิกา -->
+        <div class="card" style="text-align:center">
+            <div id="clock">00:00:00</div>
+            <p style="color:#64748b; font-size:14px" id="dateDisplay"></p>
+        </div>
+
+        <!-- เช็คอิน/เอาท์ -->
+        <div class="card">
+            <h2>บันทึกเวลาทำงาน</h2>
+            <div class="form-group">
+                <label>เลือกพนักงาน</label>
+                <select id="empSelect">
+                    <option value="">-- เลือกพนักงาน --</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-success" onclick="checkIn()">เช็คอิน</button>
+                <button class="btn btn-danger" onclick="checkOut()">เช็คเอาท์</button>
+            </div>
+        </div>
+
+        <!-- ผลลัพธ์ -->
+        <div class="card" id="resultCard" style="display:none">
+            <h2>ผลลัพธ์ล่าสุด</h2>
+            <div id="resultContent"></div>
+        </div>
+
+        <!-- ประวัติเข้างาน -->
+        <div class="card">
+            <h2>ประวัติเข้างาน</h2>
+            <div id="historyLoading" class="loading">เลือกพนักงานเพื่อดูประวัติ</div>
+            <table id="historyTable" style="display:none">
+                <thead>
+                    <tr>
+                        <th>วันที่</th>
+                        <th>เวลาเข้า</th>
+                        <th>เวลาออก</th>
+                        <th>ชั่วโมงทำงาน</th>
+                        <th>OT (ชม.)</th>
+                    </tr>
+                </thead>
+                <tbody id="historyBody"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+    <script src="checkin.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: hr_mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: hrdb
+    ports:
+      - "8820:3306"
+    volumes:
+      - hr_mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - hr_network
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: hr_phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8830:80"
+    depends_on:
+      - db
+    networks:
+      - hr_network
+    restart: always
+
+networks:
+  hr_network:
+    driver: bridge
+
+volumes:
+  hr_mysql_data:
+    driver: local
